@@ -17,5 +17,8 @@
 #
 # Your code should work for any name. Your code should
 # only output the number, no other text is needed.
-name = input("What is your name? ")
-print(len(name))
+# name = input("What is your name? ")
+# print(len(name))
+
+# Want to get annoyingly complex?
+print(len(input("What is your name? ")))
