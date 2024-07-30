@@ -12,7 +12,7 @@ if user_height > 120:  # True
         print("Youth tickets are $7.")
     elif user_age >= 45 and user_age <= 55:
         ticket_price = 0
-        print("45 to 55 ride for free.")
+        print("Everything is going to be ok. Have a free ride on us!")
     else:  # False
         ticket_price = 12
         print("Adult tickets are $12.")
