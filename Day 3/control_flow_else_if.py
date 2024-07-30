@@ -10,4 +10,4 @@ water_level = 90
 if water_level > 80:  #  Our condition
     print("Drain water.")  # This gets called because condition is True
 else:
-    print("Continue")  # This gets called because condition is False
+    print("Continue")  # This gets called because condition is False.
