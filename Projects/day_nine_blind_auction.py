@@ -20,6 +20,7 @@ current_winner = {}
 current_winning_bid = 0
 for key in current_bids:
     if current_bids[key] > current_winning_bid:
+        current_winning_bid = current_bids[key]
         current_winner = {
             "winner": key,
             "amount": current_bids[key]
