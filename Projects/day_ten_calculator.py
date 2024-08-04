@@ -66,10 +66,57 @@ operations = {
     "/": divide,
 }
 
-number_one = int(input("What's the first number?: "))
-for operation in operations:
-    print(operation)
-operation_symbol = input("Pick an operation from the line above: ")
-number_two = int(input("What's the second number?: "))
+def get_number(prompt):
+    """
+    get_number Asks the user for an integer input and returns the value.
 
-print(f"{number_one} {operation_symbol} {number_two} = {operations[operation_symbol](number_one, number_two)}")
+    Args:
+        prompt (string): The prompt to be displayed
+
+    Returns:
+        int: The integer conversion of given input string
+    """
+    return int(input(prompt))
+
+def get_operation():
+    """
+    get_operation Verifies and returns the mathematical operation
+
+    Returns:
+        string: The verified mathematical operation
+    """
+    while True:
+        print(" ".join(operations.keys()))
+        operation = input("Pick an operation from the line above: ")
+        if operation in operations:
+            return operation
+        print("Invalid operation. Please try again.")
+
+
+def calculate(current_result=None):
+    """
+    calculate The core loop of the application that calculates 2 numbers.
+
+    Args:
+        current_result (int, optional): The overall results of conversion. Defaults to None.
+
+    Returns:
+        int: The results of the calculation
+    """
+    if current_result is None:
+        current_result = get_number("What's the first number: ")
+
+    while True:
+        operation = get_operation()
+        next_number = get_number("What's the next number?: ")
+        current_result = operations[operation](current_result, next_number)
+        print(f"{current_result} {operation} {next_number} = {current_result}")
+
+        continue_calc = input(f"Type 'y' to continue calculating with {current_result}, or type 'n' to exit: ").lower()
+        if continue_calc != 'y':
+            break
+
+    return current_result
+
+results = calculate()
+print(f"Final result: {results}")
