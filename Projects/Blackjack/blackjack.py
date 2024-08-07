@@ -9,10 +9,8 @@ def add_card(card_array: list) -> list:
     return card_array
 
 def create_hand() -> list[int]:
-    new_list = []
-    for _ in range(2):
-        add_card(new_list)
-    return new_list
+    hand = []
+    return add_card(add_card(hand))
 
 def calculate_score(card_array: list) -> int:
     if sum(card_array) == 21 and len(card_array) == 2:
