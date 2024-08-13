@@ -4,5 +4,5 @@ from menu import Menu
 my_console = GameConsole()
 my_menu = Menu(my_console)
 
-while True:
+while not my_menu.exit_pending:
     my_menu.run()
